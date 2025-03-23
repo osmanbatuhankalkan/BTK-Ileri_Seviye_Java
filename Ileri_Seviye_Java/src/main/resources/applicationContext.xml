@@ -11,7 +11,7 @@
     mantığını uyguladığımız bir yapıdır. Sabit değerler 'values.properties' classında tanımlanır burda yolu verilir bağlanır.
     Aşşağıda ise 'value' kısımının ${} içerisine parametresi verilerek yazılır.-->
     <bean id="database" class="com.osmanbatuhan.Ileri_Seviye_Java.MsSqlCustomerDal">
-        <property name="connectionString" value= "${local.email}" ></property>
+        <property name="connectionString" value= "${local.email2}" ></property>
     </bean>
     <bean id="service" class="com.osmanbatuhan.Ileri_Seviye_Java.CustomerManager"> <!--Bu da biri senden service istedğinde bulunursa ona CustomerManager'i ver demek-->
 <!-- <constructor-arg ref="database"/> -->
