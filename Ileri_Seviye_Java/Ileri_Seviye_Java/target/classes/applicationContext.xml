@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:values.properties"/> <!-- Bu sabit değerlerimizi tanımlamayı ve bir kere yaz her yerde kullan
+    mantığını uyguladığımız bir yapıdır. Sabit değerler 'values.properties' classında tanımlanır burda yolu verilir bağlanır.
+    Aşşağıda ise 'value' kısımının ${} içerisine parametresi verilerek yazılır.-->
+    <bean id="database" class="com.osmanbatuhan._001_Ileri_Seviye_Java.MsSqlCustomerDal">
+        <property name="connectionString" value= "${local.email2}" ></property>
+    </bean>
+    <bean id="service" class="com.osmanbatuhan._001_Ileri_Seviye_Java.CustomerManager"> <!--Bu da biri senden service istedğinde bulunursa ona CustomerManager'i ver demek-->
+<!-- <constructor-arg ref="database"/> -->
+<!-- yapının cons'u parametreliyse, bu olruda customermangaer içerisinde bir TYPE'isterse ICustomerDal gibi
+     impleme bağından referansını bağlıyor.
+     -->
+        <!--Setter Injecton için kullanılır.-->
+        <property name="customerDal" ref="database"></property>
+    </bean>
+    <!-- Yeni bir yapı gelince sadece dosya ismi değiştiriyoruz. İF lerle karmaşık yapılar kurmuyoruz.
+       <bean id="database" class="com.osmanbatuhan._001_Ileri_Seviye_Java.MysqlCustomerDal">
+       </bean>
+       -->
+       <!--
+       artık veri tabanları arası bağlantıyı çok rahat yönetebileceğiz. sadece dosya ismi değiştirerek geçiş yapmıs olacağız.
+           <bean id="database" class="com.osmanbatuhan._001_Ileri_Seviye_Java.CustomerDal">
+       </bean>
+       ->
+       <!-s-->
+   </beans>
