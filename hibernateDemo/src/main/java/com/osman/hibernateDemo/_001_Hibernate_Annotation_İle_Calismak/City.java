@@ -7,7 +7,7 @@ import jakarta.persistence.Table;
 
 /// Burada MySql veri tabanızımıda city tablosuna karşılık gelen Nesnemizi oluşturuyoruz.
 /// Sonrasında zaten Bunları MAP edeceğiz. Yani birbirlerine bağlayacağız.
-/// Nedir bu entity? Şu an bu city nesnesi bir entitydir, yani bir veri tabanı nesnesidir.
+/// Nedir bu entity? Şu an bu city nesnesi bir entitydir, yani bir veri tabanı nesnesidir..
 
 @Entity
 @Table(name="city") //Hangi tabloya karşılık gelecek onun cevabı
