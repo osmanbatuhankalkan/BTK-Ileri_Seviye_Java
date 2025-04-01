@@ -1,4 +1,4 @@
-package com.osman.hibernateDemo._002_Ilk_Sorgu;
+package com.osman.hibernateDemo._003_Kosullu_Sorgular_Yazmak;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
