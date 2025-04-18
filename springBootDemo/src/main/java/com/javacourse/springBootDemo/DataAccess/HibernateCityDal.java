@@ -5,6 +5,8 @@ import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 //JPA: ASlında başlangıçta bir veri erişim tekniği gibi, bir ORM olarak ortaya çıkmış olup, daha sonrasında javada bir standart haline geliyor.
@@ -12,6 +14,7 @@ import java.util.List;
 //Bunu implamante etmesinin sebebi şu oluyor, biz hızlı bir şekilde. Hangi implamantasyonu istiyorsak ona geçiyoruz.İster Hİbernate'e ister farklı bir ORM'e
 //Bu noktada bizde bunu kullanıyor olcağız, hibernate dersinde oluşturduğumuz o section faktory ve o section nesnesi, otoamtik olarak burada injectionla oluşacak JPA'yı kullanarak.
 
+@Repository
 public class HibernateCityDal implements ICityDal{
 
     private EntityManager entityManager;

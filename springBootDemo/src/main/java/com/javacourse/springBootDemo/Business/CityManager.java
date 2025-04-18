@@ -30,7 +30,6 @@ public class CityManager implements ICityService {
         // @Autowired, şuan haızrda hibernate olduğu için bu çözümlemeyi bizim için yapıyor.
 
     }
-
     @Override
     @Transactional
     public void add(City city) {

@@ -1,8 +1,13 @@
 package com.javacourse.springBootDemo.Entities;
 
-import jakarta.persistence.*;
-import org.springframework.data.relational.core.mapping.Table;
-import jakarta.persistence.*;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.persistence.Id;
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+
 
 //Bir veri tabanı nesnesi olduğunu anlatan @Entitiy
 @Entity
@@ -17,23 +22,22 @@ public class City {
     @GeneratedValue(strategy = GenerationType.IDENTITY)//otomatik id artışı olacağını bu şekilde belirtiriz.
     private int id;
 
-    @Column(name="name")
+    @Column(name="Name")
     private String name;
 
-    @Column(name="countryCode")
+    @Column(name="CountryCode")
     private String countryCode;
 
-    @Column(name="district")
+    @Column(name="District")
     private String district;
 
-    @Column(name="population")
+    @Column(name="Population")
     private int population;
 
     // JPA için zorunlu parametresiz constructor:
     protected City() { }
 
     public City(int id, String name, String countryCode, String district, int population) {
-        super();
         this.id = id;
         this.name = name;
         this.countryCode = countryCode;
