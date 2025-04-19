@@ -37,19 +37,31 @@ public class HibernateCityDal implements ICityDal{
         //Hibernate ile JPA kullanarak çok hızlı kodlamış olduk.
         //tüm şehirleri listeliyebiliriz şuan.
     }
-
+    /// ********************* ADD-UPDATE-DELETE ***************************
     @Override
     public void add(City city) {
-
+    Session session= this.entityManager.unwrap(Session.class);
+    session.saveOrUpdate(city);
     }
-
+    //Burada iki kere aynı şeyi yazmış gibi olduk fakat, tecrübeyle sabit bu yapı daha kullanışlıymış.
+    //Yukarıda add içerisinde if şart bloklarıyla, sistemsel yada kullanıcısal hataların önüne sorgularla geçebiliyormuşuz.
+    //Örnek olarak if ile id 0 dan farklı mı? türünden sorgularla vs.
     @Override
     public void update(City city) {
-
+        Session session= this.entityManager.unwrap(Session.class);
+        session.saveOrUpdate(city);
     }
-
     @Override
     public void delete(City city) {
-
+    Session session= this.entityManager.unwrap(Session.class);
+    }
+    /// ************************************************
+    /// Burada veri tabanımızdaki tek bir nesmemizi çağıracak methodumuzu yazdık. Peki ne yaptık ? Önce HibernateCityDal classımızın atası olan ICityDal interface'ine gittik.
+    /// Orada getById methodunu tanımladık ve geldik burada override ederek kullandık.
+    @Override
+    public City getById(int id) {
+        Session session= this.entityManager.unwrap(Session.class);
+        City city=session.get(City.class, id);
+        return city;
     }
 }
