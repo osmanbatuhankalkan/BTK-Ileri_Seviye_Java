@@ -12,5 +12,7 @@ public interface ICityService {
     void add(City city);
     void update(City city);
     void delete(City city);
+    //Rest API tarafında da bu işlemlerimizi yapalım.
+    City getById(int id);//CityManager'da @override edelim, cityDal'ı kullanarak CRUD işlemlerimizi yapalım.
 
 }

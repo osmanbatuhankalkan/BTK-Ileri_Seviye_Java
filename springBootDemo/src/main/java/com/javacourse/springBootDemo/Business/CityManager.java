@@ -18,6 +18,7 @@ public class CityManager implements ICityService {
     private ICityDal cityDal;
     //Buradaki ICityDal'ın çözümlenmesi gerekiyor.Onun içinde burada da @Autowired anatasyonunu kullanacağız.
     //Sen git bak ICityDal'a uygun bir şey varsa, onu ver der.
+
     @Autowired
     public CityManager(ICityDal cityDal) {
         this.cityDal = cityDal;
@@ -30,21 +31,29 @@ public class CityManager implements ICityService {
         // @Autowired, şuan haızrda hibernate olduğu için bu çözümlemeyi bizim için yapıyor.
 
     }
+    //Buralarda şunlarıda yapabiliriz, şehir eklenecek ama daha önce eklenmemiş olması gerek. Şu kurallar geçerli olacak vs.
+    //Burada iş kuralları dediğimiz kısımları  yaparız
     @Override
     @Transactional
     public void add(City city) {
-
+    this.cityDal.add(city);
     }
 
     @Override
     @Transactional
     public void update(City city) {
-
+    this.cityDal.update(city);
     }
 
     @Override
     @Transactional
     public void delete(City city) {
+    this.cityDal.delete(city);
+    }
 
+    @Override
+    @Transactional
+    public City getById(int id) {
+        return this.cityDal.getById(id);
     }
 }
