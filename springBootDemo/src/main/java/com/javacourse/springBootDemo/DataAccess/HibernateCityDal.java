@@ -54,6 +54,9 @@ public class HibernateCityDal implements ICityDal{
     @Override
     public void delete(City city) {
     Session session= this.entityManager.unwrap(Session.class);
+    City cityToDelete=session.get(City.class, city.getId());//Önce veri tabanından alıp MAP edicez.
+        //Gönderilen City nesnesinni id'sini veri tabanından al, o city nesnesini çek,
+    session.delete(cityToDelete);//ve sil.
     }
     /// ************************************************
     /// Burada veri tabanımızdaki tek bir nesmemizi çağıracak methodumuzu yazdık. Peki ne yaptık ? Önce HibernateCityDal classımızın atası olan ICityDal interface'ine gittik.

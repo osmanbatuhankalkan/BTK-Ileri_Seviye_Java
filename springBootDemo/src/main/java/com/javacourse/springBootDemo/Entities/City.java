@@ -25,7 +25,7 @@ public class City {
     @Column(name="Name")
     private String name;
 
-    @Column(name="CountryCode")
+    @Column(name="Countrycode")
     private String countryCode;
 
     @Column(name="District")
